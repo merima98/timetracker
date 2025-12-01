@@ -1,9 +1,14 @@
+import { Suspense } from "react";
+import Link from "next/link";
+
 import { AuthButton } from "@/components/auth-button";
 import { ThemeSwitcher } from "@/components/theme-switcher";
-import Link from "next/link";
-import { Suspense } from "react";
 
-export default function Home() {
+export default function ProtectedLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <main className="min-h-screen flex flex-col items-center">
       <div className="flex-1 w-full flex flex-col gap-20 items-center">
@@ -20,6 +25,9 @@ export default function Home() {
             </Suspense>
           </div>
         </nav>
+        <div className="flex-1 flex flex-col gap-20 max-w-5xl p-5">
+          {children}
+        </div>
       </div>
     </main>
   );
