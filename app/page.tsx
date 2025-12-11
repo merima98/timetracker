@@ -1,7 +1,10 @@
+import { Suspense } from "react";
+import Link from "next/link";
+
 import { AuthButton } from "@/components/auth-button";
 import { ThemeSwitcher } from "@/components/theme-switcher";
-import Link from "next/link";
-import { Suspense } from "react";
+import TimeTracker from "./components/TimeTracker";
+import RecentEntries from "./components/RecentEntries";
 
 export default function Home() {
   return (
@@ -20,6 +23,10 @@ export default function Home() {
             </Suspense>
           </div>
         </nav>
+        <div className="w-full">
+          <TimeTracker />
+          <RecentEntries />
+        </div>
       </div>
     </main>
   );
