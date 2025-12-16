@@ -7,7 +7,7 @@ type RecentEntryType = {
 const RecentEntry = ({ recentEntry }: { recentEntry: RecentEntryType }) => {
   const { duration, name, rangeDateTime } = recentEntry;
   return (
-    <div className="flex justify-between w-full">
+    <div className="flex justify-between w-full py-2 border-b border-b-foreground/10">
       <div>{name}</div>
       <div className=" flex flex-col">
         <span>{rangeDateTime}</span>
@@ -31,8 +31,10 @@ const RecentEntries = () => {
     },
   ] as RecentEntryType[];
   return (
-    <div className="flex flex-col items-center mt-10">
-      <span>RECENT ENTRY</span>
+    <div className="flex flex-col items-center mt-10 px-10">
+      <span className="w-full border-b border-b-foreground/10 pb-2 font-semibold">
+        RECENT ENTRY
+      </span>
       {array.map((item, index) => (
         <RecentEntry recentEntry={item} key={index} />
       ))}
